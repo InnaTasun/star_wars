@@ -81,7 +81,7 @@ import p74 from "./people/74.png";
 import p75 from "./people/75.jpg";
 import p76 from "./people/76.png";
 import p77 from "./people/77.png";
-import p78 from "./people/78.jpg";
+import p78 from "./people/78.png";
 import p79 from "./people/79.jpg";
 import p80 from "./people/80.jpg";
 import p81 from "./people/81.png";
