@@ -8,11 +8,20 @@ export function useFetch(url) {
 
     async function fetchData() {
       const response = await fetch(url);
-      const dataJSON = await response.json();
-      dataJSON.results ? setData(dataJSON.results) : setData([dataJSON]);
+
+      if (!response.ok) {
+        return Promise.reject(response);
+      } else {
+        const dataJSON = await response.json();
+        dataJSON.results ? setData(dataJSON.results) : setData([dataJSON]);
+      }
     }
 
-    fetchData();
+    try {
+      fetchData();
+    } catch (err) {
+      console.log(err.message);
+    }
   }, [url]);
 
   return data;

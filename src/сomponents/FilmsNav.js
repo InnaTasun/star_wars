@@ -16,6 +16,7 @@ function FilmsNav(props) {
 const StyledFilmsNav = styled(FilmsNav)`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 
   .films-list {
     &--film {

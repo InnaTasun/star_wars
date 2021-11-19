@@ -10,7 +10,7 @@ function DescrInfoList(props) {
   } else {
     listItems = dataArr.map((itemUrl, index) => (
       <li className="info-list--info-item" key={index}>
-        <ElemByUrl url={itemUrl} mainProp="name" />
+        <ElemByUrl url={itemUrl} mainProp="name" addProp="model" />
         {index !== dataArr.length - 1 ? ", " : ""}
       </li>
     ));
@@ -22,6 +22,8 @@ function DescrInfoList(props) {
 const StyledDescrInfoList = styled(DescrInfoList)`
   display: flex;
   justify-content: start;
+  flex-wrap: wrap;
+
   .info-list {
     &--info-item {
       list-style-type: none;

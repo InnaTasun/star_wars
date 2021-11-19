@@ -39,7 +39,7 @@ const StyledCharacter = styled(Character)`
     height: 500px;
     justify-content: start;
     flex-wrap: nowrap;
-    margin: 10px 10px 40px 0;
+    margin: 0 10px 40px 0;
 
     &--logo {
       height: 100%;

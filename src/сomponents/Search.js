@@ -31,9 +31,10 @@ function Search(props) {
 }
 
 const StyledSearch = styled(Search)`
-  display: flex;
-
   .search {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
     &--input {
       color: dimgrey;
       border-top: none;

@@ -34,6 +34,12 @@ function App(props) {
 }
 
 const StyledApp = styled(App)`
+  min-height: 100vh;
+  min-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   * {
     margin: 0;
     padding: 0;
@@ -49,9 +55,8 @@ const StyledApp = styled(App)`
 
   .content {
     width: 100%;
-    min-height: 100vh;
-    min-width: 700px;
     padding: 1rem;
+
     &--header {
       height: 40px;
     }
@@ -66,9 +71,12 @@ const StyledApp = styled(App)`
   .header {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
 
     &--home-link {
-      height: 100%;
+      height: 40px;
+      margin-bottom: -5px;
     }
 
     &--search {

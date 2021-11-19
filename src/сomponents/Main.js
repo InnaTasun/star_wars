@@ -24,7 +24,6 @@ const StyledMain = styled(Main)`
     height: 400px;
     background-color: black;
     text-align: center;
-    margin-top: 10px;
     margin-bottom: 40px;
     &--img {
       height: 100%;
