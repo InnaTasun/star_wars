@@ -1,17 +1,19 @@
-import ElemByUrl from "./ElemByUrl";
-import styled from "styled-components";
-import parseUrl from "../parseUrl";
+import ElemByUrl from './ElemByUrl';
+import styled from 'styled-components';
+import parseUrl from '../parseUrl';
 
 function CharactsNav(props) {
-  const dataArr = props.dataArr;
+  const { dataArr, className } = props;
+  let listItems = [];
 
-  const listItems = dataArr.map((characterUrl) => (
-    <li className="characts-list--character" key={parseUrl(characterUrl).id}>
-      <ElemByUrl url={characterUrl} mainProp="name" elemType="navImg" />
-    </li>
-  ));
-
-  return <ul className={`${props.className} characts-list`}>{listItems}</ul>;
+  if (dataArr && dataArr.length) {
+    listItems = dataArr.map((characterUrl) => (
+      <li className='characts-list--character' key={parseUrl(characterUrl).id}>
+        <ElemByUrl url={characterUrl} mainProp='name' elemType='navImg' />
+      </li>
+    ));
+  }
+  return <ul className={`${className} characts-list`}>{listItems}</ul>;
 }
 
 const StyledCharactsNav = styled(CharactsNav)`
@@ -24,6 +26,7 @@ const StyledCharactsNav = styled(CharactsNav)`
       height: 200px;
       margin: 0.5rem;
       list-style-type: none;
+      box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
     }
   }
 `;

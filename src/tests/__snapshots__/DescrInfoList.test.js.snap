@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DescrInfoList snapshot 1`] = `
+<div>
+  <ul
+    class="sc-gsDKAQ gLKjQI info-list"
+  >
+    n/a
+  </ul>
+</div>
+`;

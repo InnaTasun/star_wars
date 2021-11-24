@@ -1,16 +1,19 @@
-import ElemByUrl from "./ElemByUrl";
-import styled from "styled-components";
+import ElemByUrl from './ElemByUrl';
+import styled from 'styled-components';
 
 function FilmsNav(props) {
-  const dataArr = props.dataArr;
+  const { dataArr, className } = props;
+  let listItems = [];
 
-  const listItems = dataArr.map((film) => (
-    <li className="films-list--film" key={film.episode_id}>
-      <ElemByUrl url={film.url} mainProp="title" elemType="navImg" />
-    </li>
-  ));
+  if (dataArr) {
+    listItems = dataArr.map((film) => (
+      <li className='films-list--film' key={film.episode_id}>
+        <ElemByUrl url={film.url} mainProp='title' elemType='navImg' />
+      </li>
+    ));
+  }
 
-  return <ul className={`${props.className} films-list`}>{listItems}</ul>;
+  return <ul className={`${className} films-list`}>{listItems}</ul>;
 }
 
 const StyledFilmsNav = styled(FilmsNav)`
@@ -23,6 +26,7 @@ const StyledFilmsNav = styled(FilmsNav)`
       height: 290px;
       margin: 0.5rem;
       list-style-type: none;
+      box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
     }
   }
 `;

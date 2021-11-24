@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmsNav snapshot 1`] = `
+<div>
+  <ul
+    class="sc-gsDKAQ enRQhp films-list"
+  />
+</div>
+`;

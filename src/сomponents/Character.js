@@ -1,29 +1,31 @@
-import { useParams } from "react-router";
-import { useFetch } from "../useFetch";
-import * as urls from "../constants/urls";
-import Pics from "../images";
-import Description from "./Description";
-import StarringNav from "./StarringNav";
-import styled from "styled-components";
+import { useParams } from 'react-router';
+import { useFetch } from '../hooks/useFetch';
+import * as URLS from '../constants/urls';
+import pics from '../images';
+import Description from './Description';
+import StarringNav from './StarringNav';
+import styled from 'styled-components';
+import * as DATA_TYPES  from "../constants/dataTypes"
 
-function Character(props) {
-  const params = useParams();
-  const id = params.id;
-  const character = useFetch(urls.PEOPLE_URL + "/" + id);
+function Character({ className }) {
+  const { id } = useParams();
+  const character = useFetch(URLS.PEOPLE_URL + '/' + id);
 
-  if (character.length === 0) return <></>;
+  if (!character.length) {
+    return null;
+  }
 
   return (
-    <div className={props.className}>
-      <div className="character">
+    <div className={className}>
+      <div className='character'>
         <img
-          className="character--logo"
-          src={Pics.people[id - 1]}
+          className='character--logo'
+          src={pics.people[id - 1]}
           alt={character[0].name}
         />
         <Description
-          className="character--info"
-          dataType="people"
+          className='character--info'
+          dataType={DATA_TYPES.PEOPLE}
           data={character[0]}
         />
       </div>
@@ -43,11 +45,16 @@ const StyledCharacter = styled(Character)`
 
     &--logo {
       height: 100%;
+      box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
     }
 
     &--info {
       margin-left: 2rem;
       text-align: justify;
+      
+      .bold{
+        font-weight: bold;
+      }
     }
   }
 `;

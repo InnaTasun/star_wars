@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main snapshot 1`] = `
+<div>
+  <div
+    class="sc-dkPtRN iYKAki"
+  >
+    <div
+      class="main-logo"
+    >
+      <img
+        alt="main logo"
+        class="main-logo--img"
+        src="mainLogo.jpeg"
+      />
+    </div>
+    <h3>
+      MOVIES
+    </h3>
+    <ul
+      class="sc-gsDKAQ enRQhp films-list"
+    />
+    <br />
+  </div>
+</div>
+`;

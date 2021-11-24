@@ -1,31 +1,37 @@
-import { useParams } from "react-router";
-import { useFetch } from "../useFetch";
-import * as urls from "../constants/urls";
-import Pics from "../images";
-import Description from "./Description";
-import CharactsNav from "./CharactsNav";
-import styled from "styled-components";
+import { useParams } from 'react-router';
+import { useFetch } from '../hooks/useFetch';
+import * as URLS from '../constants/urls';
+import pics from '../images';
+import Description from './Description';
+import CharactsNav from './CharactsNav';
+import styled from 'styled-components';
+import * as DATA_TYPES from '../constants/dataTypes';
 
-function Movie(props) {
-  const params = useParams();
-  const id = params.id;
-  const movies = useFetch(urls.FILMS_URL + "/" + id);
+function Movie({ className }) {
+  const { id } = useParams();
+  const movies = useFetch(URLS.FILMS_URL + '/' + id);
 
-  if (movies.length === 0) return <></>;
+  if (!movies.length) {
+    return null;
+  }
 
   return (
-    <div className={props.className}>
-      <div className="film">
+    <div className={className}>
+      <div className='film'>
         <img
-          className="film--logo"
-          src={Pics.films[id - 1]}
+          className='film--logo'
+          src={pics.films[id - 1]}
           alt={movies[0].title}
         />
-        <Description className="film--info" dataType="films" data={movies[0]} />
+        <Description
+          className='film--info'
+          dataType={DATA_TYPES.FILMS}
+          data={movies[0]}
+        />
       </div>
 
       <h3>CHARACTERS</h3>
-      <CharactsNav dataType="people" dataArr={movies[0].characters} />
+      <CharactsNav dataType='people' dataArr={movies[0].characters} />
     </div>
   );
 }
@@ -40,11 +46,16 @@ const StyledMovie = styled(Movie)`
 
     &--logo {
       height: 100%;
+      box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
     }
 
     &--info {
       margin-left: 2rem;
       text-align: justify;
+
+      .bold{
+        font-weight: bold;
+      }
     }
   }
 `;

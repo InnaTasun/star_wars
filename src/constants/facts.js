@@ -95,7 +95,7 @@ const film6_facts = [
     let’s be honest, is one of the best parts of the entire film.`
 ]
 
- const facts = [
+ const  FACTS = [
      film1_facts, 
      film2_facts, 
      film3_facts, 
@@ -103,4 +103,4 @@ const film6_facts = [
      film5_facts, 
      film6_facts]
 
- export default facts
+ export default FACTS

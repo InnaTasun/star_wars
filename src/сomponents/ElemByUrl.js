@@ -1,32 +1,37 @@
-import { useFetch } from "../useFetch";
-import parseUrl from "../parseUrl";
-import { Link } from "react-router-dom";
-import Pics from "../images";
-import styled from "styled-components";
+import { useFetch } from '../hooks/useFetch';
+import parseUrl from '../parseUrl';
+import { Link } from 'react-router-dom';
+import pics from '../images';
+import styled from 'styled-components';
+import * as DATA_TYPES from '../constants/dataTypes'
 
 function ElemByUrl(props) {
-  const { url, elemType, addProp } = props;
-  let mainProp = props.mainProp;
+  const { url, elemType, addProp, className } = props;
+  let { mainProp } = props;
   const elems = useFetch(url);
   const { id, dataType } = parseUrl(url);
 
-  if (elems.length === 0) return <></>;
+  if (!elems.length) {
+    return null;
+  }
 
-  if (!elems[0].hasOwnProperty(mainProp)) mainProp = addProp;
+  if (!elems[0].hasOwnProperty(mainProp)) {
+    mainProp = addProp;
+  }
 
-  if (elemType === "navImg") {
+  if (elemType === 'navImg') {
     return (
-      <Link className={`${props.className} element`} to={`/${dataType}/${id}`}>
+      <Link className={`${className} element`} to={`/${dataType}/${id}`}>
         <img
-          className="element--img"
-          src={Pics[dataType][id - 1]}
+          className='element--img'
+          src={pics[dataType][id - 1]}
           alt={elems[0][mainProp]}
         />
 
-        {dataType === "people" ? (
-          <p className="element--label">{elems[0][mainProp]}</p>
+        {dataType === DATA_TYPES.PEOPLE ? (
+          <p className='element--label'>{elems[0][mainProp]}</p>
         ) : (
-          ""
+          ''
         )}
       </Link>
     );

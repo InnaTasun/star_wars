@@ -1,32 +1,38 @@
-import { useRef, useState } from "react";
-import searchImg from "../images/searchImg.png";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { useRef, useState } from 'react';
+import searchImg from '../images/searchImg.png';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-function Search(props) {
-  const [inputValue, setInputValue] = useState("");
+function Search( props) {
+  const { className } = props
+  const [inputValue, setInputValue] = useState('');
   const inputRef = useRef();
 
-  function handleClick() {
-    inputRef.current.value = "";
-    setInputValue("");
+  function onChange(event) {
+    setInputValue(event.target.value);
   }
 
+  function onClick() {
+    props.onChange();
+    inputRef.current.value = '';
+    setInputValue('');
+  }
+  
   return (
-    <div className={`${props.className} search`}>
+    <form className={`${className} search`} action={`/search/${inputValue}`}>
       <input
-        className="search--input"
+        className='search--input'
         ref={inputRef}
-        type="search"
-        placeholder="Search movie or character..."
+        type='search'
+        placeholder='Search movie or character...'
         value={inputValue}
-        onChange={(event) => setInputValue(event.target.value)}
+        onChange={onChange}
       />
 
-      <Link to={`/search/${inputValue}`} onClick={handleClick}>
-        <img className="search--btn" src={searchImg} alt="lens" />
+      <Link to={`/search/${inputValue}`} onClick={onClick}>
+        <img className='search--btn' src={searchImg} alt='lens' />
       </Link>
-    </div>
+    </form>
   );
 }
 

@@ -1,32 +1,32 @@
-import Main from "./сomponents/Main";
-import Movie from "./сomponents/Movie";
-import styled from "styled-components";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import homeLogo from "./images/homeLogo.png";
-import Search from "./сomponents/Search";
-import SearchResults from "./сomponents/SearchResults";
-import Character from "./сomponents/Character";
+import Main from './Main';
+import Movie from './Movie';
+import styled from 'styled-components';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import homeLogo from '../images/homeLogo.png';
+import Search from './Search';
+import SearchResults from './SearchResults';
+import Character from './Character';
 
-function App(props) {
+function App({ className }) {
   return (
-    <div className={`${props.className} content`}>
-      <Router>
-        <header className="content--header header">
-          <Link to="/">
-            <img className="header--home-link" src={homeLogo} alt="home logo" />
+    <div className={`${className} content`}>
+      <BrowserRouter>
+        <header className='content--header header'>
+          <Link to='/'>
+            <img className='header--home-link' src={homeLogo} alt='home logo' />
           </Link>
-          <Search className="header--search" />
+          <Search className='header--search' />
         </header>
 
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/search/:q" element={<SearchResults />} />
-          <Route path="/films/:id" element={<Movie />} />
-          <Route path="/people/:id" element={<Character />} />
+          <Route path='/' element={<Main />} />
+          <Route path='/search/:q' element={<SearchResults />} />
+          <Route path='/films/:id' element={<Movie />} />
+          <Route path='/people/:id' element={<Character />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
 
-      <footer className="content--footer">
+      <footer className='content--footer'>
         <p>Created by Inna Tasun &copy; 2021</p>
       </footer>
     </div>

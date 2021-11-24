@@ -1,3 +1,2 @@
-export const FILMS = "films";
-export const PEOPLE = "people";
-export const STARRING = "starring";
+export const FILMS = 'films';
+export const PEOPLE = 'people';
