@@ -12,8 +12,10 @@ to open project in the browser (http://localhost:3000)
 ### `npm test`
 to start project testing
 
+### `npm run test:cypress`
+to start testing with Cypress
+
 
 Please note:
 1. Node.js(v16.13.0) and NPM(v8.1.0) were used for the project
-2. you can searh film/character by title/name 
-    (please click the lens)
+2. you can searh film/character by title/name

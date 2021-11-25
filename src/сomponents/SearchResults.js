@@ -39,7 +39,7 @@ const StyledSearchResults = styled(SearchResults)`
       height: 290px;
       margin: 0.5rem;
       list-style-type: none;
-      box-shadow: 7px 7px 7px rgba(0,0,0,0.5);
+      box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.5);
     }
   }
 `;

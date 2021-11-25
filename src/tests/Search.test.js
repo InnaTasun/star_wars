@@ -18,10 +18,11 @@ describe('Search component', () => {
 
   test('works', () => {
     const onChange = jest.fn();
+    const onClick = jest.fn();
 
     render(
       <MemoryRouter>
-        <Search onChange={onChange} />
+        <Search onChange={onChange} onClick={onClick} />
       </MemoryRouter>
     );
 
@@ -29,10 +30,12 @@ describe('Search component', () => {
     const button = screen.getByRole('link');
 
     fireEvent.change(input, { target: { value: 'yoda' } });
+    expect(onChange).toBeCalledTimes(1);
     expect(input.value).toContain('yoda');
 
     fireEvent.click(button, { bubbles: true });
-    expect(onChange).toBeCalledTimes(1);
+    fireEvent.click(button, { bubbles: true });
+    expect(onClick).toBeCalledTimes(2);
     expect(input.value).toBe('');
   });
 

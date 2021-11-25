@@ -9,11 +9,12 @@ function Search( props) {
   const inputRef = useRef();
 
   function onChange(event) {
+    props.onChange && props.onChange();
     setInputValue(event.target.value);
   }
 
   function onClick() {
-    props.onChange();
+    props.onClick && props.onClick();
     inputRef.current.value = '';
     setInputValue('');
   }
