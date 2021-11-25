@@ -10,10 +10,10 @@ to install all dependencies
 to open project in the browser (http://localhost:3000)
 
 ### `npm test`
-to start project testing
+to start unit testing with Jest
 
 ### `npm run test:cypress`
-to start testing with Cypress
+to start integration testing with Cypress
 
 
 Please note:
